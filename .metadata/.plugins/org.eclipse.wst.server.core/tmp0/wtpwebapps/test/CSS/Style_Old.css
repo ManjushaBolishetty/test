@@ -1,0 +1,132 @@
+*{
+	margin:0 auto;
+	padding: 0;
+}
+body{
+	width:1280px;
+	height:1040px;
+	background-color:gray;
+}
+#page{
+	width:1000px;
+	height:1000px;
+	margin:20px 140px 20px 140px;
+	background-color:#9900cc;
+}
+
+#header{
+	height:200px;
+	width:1000px;
+	background-color:#f9e6ff;
+}
+
+
+#nav_topleft{
+	width:200px;
+	height:200px;
+	background-color:#ff6600;
+	float:left;
+}
+
+#logo{
+	height:200px;
+	width:300px;
+	float:left;
+}
+
+#nav_topright{
+	width:200px;
+	height:200px;
+	background-color:#ff6600;
+	float:right;
+}
+
+#aside_left{
+	height:600px;
+	width:200px;
+	background-color:#ac7339;
+	float:left;
+}
+
+#content{
+	width:600px;
+	height:600px;
+	float:left;
+	background-color:#f9f2ec;
+}
+#aside_right{
+	height:600px;
+	width:200px;
+	background-color:#ac7339;
+	float:right;
+}
+
+#footer{
+	height:200px;
+	width:1000px;
+	background-color:#f9e6ff;
+}
+
+#nav_bottomleft{
+	width:200px;
+	height:200px;
+	background-color:#ff6600;
+	float:left;
+	
+}
+
+
+#copyright{
+	width:600px;
+	height:200px;
+	
+}
+
+#nav_bottomright{
+	width:200px;
+	height:200px;
+	background-color:#ff6600;
+	float:right;
+}
+/*Class Definitions*/
+a{
+	color:black;
+	display:inline-block;
+	padding-left:10px;
+	padding-top:10px;
+}
+.navlinks{
+	
+}
+
+.content{
+	border-radius:25px;
+}
+
+.logo{
+	width:450px;
+	height:200px;
+	padding-left:30px;	
+}
+
+.imagecontent{
+	width:200px;
+	height:200px;
+	opacity: 0.4;
+}
+
+.imagecontent:hover{
+	opacity: 1.0;
+}
+
+.imagecontent_left{
+	float:left;
+	
+}
+.imagecontent_middle{
+	float:left;
+}
+.imagecontent_right{
+	float:right;
+}
+

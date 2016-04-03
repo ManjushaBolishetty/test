@@ -1,0 +1,541 @@
+body{
+  border: 0;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+}
+
+#header{
+	width:100%;
+	height:100px;
+  background-color:white;
+}
+
+#header h3{
+	display:inline;
+	width:auto;
+	height:auto;
+}
+#header img{
+	width:auto;
+	float:left;
+	padding-left:0px;
+	height:100%;
+}
+
+
+.Contact{
+	
+	max-width:100%;
+	height:auto;
+	margin-left:10px;
+	margin-top:18px;
+}
+
+
+.Calendar{
+	
+	max-width:100%;
+	height:auto;
+	margin-left:10px;
+	margin-top:20px;
+}
+
+#header a{
+	float:right;
+	/*margin-right: 40px;*/
+}
+.logoSchedule{
+	width:auto;
+	float:left;
+}
+
+.logoContact{
+	width:auto;
+	float:right;
+}
+
+#navmenu{
+	width:100%;
+	height:65px;
+	background:#00A29C;
+}
+
+ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	position: absolute;
+}
+
+/*Create a horizontal list with spacing*/
+li {
+	display:inline-block;
+	float: left;
+	margin-right: 1px;
+}
+
+/*Style for menu links*/
+li a {
+	display:block;
+	min-width:140px;
+	padding-top:20px;
+	padding-bottom:16px;
+	font-size:24px;
+	text-align: center;
+	font-family: 'Roboto Slab', serif;
+	color: white;
+	background: #00A29C;
+	text-decoration: none;
+}
+
+.phonenumber{
+    font-size: 50px;
+    margin-left: 1000px;
+    display: inline-block;
+    margin-top: 22px;
+    color: #ab0002;
+    float:left;
+}
+
+/*Hover state for top level links*/
+li:hover a {
+	background: black;
+}
+
+/*Style for dropdown links*/
+li:hover ul a {
+	background: #e6ffff;
+	color: blue;
+}
+
+/*Hover state for dropdown links*/
+li:hover ul a:hover {
+	background: #19c589;
+	color: #fff;
+}
+
+/*Hide dropdown links until they are needed*/
+li ul {
+	display: none;
+}
+
+/*Make dropdown links vertical*/
+li ul li {
+	display: block;
+	float: none;
+}
+
+
+
+/*Display the dropdown on hover*/
+ul li a:hover + .dropdownContent, .dropdownContent:hover {
+	display: block;
+}
+
+/*Responsive Styles*/
+
+	.show-menu {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-decoration: none;
+	color: #fff;
+	background: #00A29C;
+	text-align: center;
+	padding: 10px 0;
+	display: none;
+}
+
+.iconlabel{
+	width:100%;
+	height:auto;
+	padding:1%;
+}
+
+.iconimage{
+	float:left;
+	height:42px;
+}
+
+
+.callusToday{
+	padding-left:10%;
+}
+.emailUs{
+	padding-left:13%;
+}
+
+/*Hide checkbox*/
+input[type=checkbox]{
+    display: none;
+}
+
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu{
+    display: block;
+}
+
+@media screen and (max-width : 832px){
+	/*Make dropdown links appear inline*/
+	ul {
+		position: static;
+		display: none;
+	}
+	
+	/*Create vertical spacing*/
+	li {
+		margin-bottom: 1px;
+	}
+	/*Make all menu links full width*/
+	ul li, li a {
+		width: 100%;
+	}
+	.show-menu {
+		display:block;
+	}
+	.imageHolder{
+		display:none;
+	}
+	.iconlabel
+	{
+	padding-top:12px;
+	float:left;
+	width:auto;
+	}
+}
+
+
+
+#Content{
+	width:100%;
+	height:600px;
+	background:white;
+}
+
+.imageHolder{
+	width:100%;
+	height:400px;
+	background-image: url("/BigHornDental/Images/appointment.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid black;
+}
+
+
+.login{
+  width: 40%;
+  font-family: lato;
+  position: relative;
+  color: white;
+  border:1px solid blue;
+  border-radius: 10px;
+  background-color:blue;
+  text-align:center;
+}
+
+.Logoutbutton{
+	padding-right:100px;
+}
+
+.Logindate h4{
+	float: left;
+    font-size: 20px;
+    display: block;
+    line-height: 12px;
+    text-align: left;
+}
+
+
+/*For Footer*/
+footer{
+padding-left:40px;
+}
+
+.footer-distributed{
+	background-color: #00A29c;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	height:auto;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 30px 30px;
+	margin-top: 80px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+ p{
+	font-size:20px;
+	color:white;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  white;
+	margin: 0;
+}
+
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-center p{
+	padding-top:3px;
+}
+
+.footer-right p{
+	margin-top:0px;
+}
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  white;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  black;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+.fa-twitter:before {
+    content: url("../Images/twitter.png");
+}
+.fa-facebook:before {
+    content: url("../Images/facebook.png");
+}
+.fa-linkedin:before {
+    content: url("../Images/linkedin.png");
+}
+
+.fa-linkedin:before {
+    content: url("../Images/linkedin.png");
+}
+
+.footer-left span{
+
+}
+
+
+.copyright{
+	padding-left: 39%;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}
+
+
+/*Supports Iphone 5,6 and 6S-Plus*/
+
+@media screen and (max-width : 440px){
+	/*Make dropdown links appear inline*/
+	#header img{
+		width:80%;
+	}
+
+	.iconimage{
+		height:100%;
+		width:10%;
+	}
+	.iconlabel{
+		font-size:30px;
+	}
+	.show-menu{
+		font-size:30px;
+	}
+
+	#showOnMobile{
+		display:block;
+	}
+
+	.Contact{
+	width:80px;
+	height:auto;
+	margin-left:0px;
+	margin-top:8px;
+	}
+
+
+.Calendar{
+	
+	width:80px;
+	height:auto;
+	margin-left:0px;
+	margin-top:8px;
+	}
+
+.phonenumber{
+	display:none;
+	}
+	
+	.callusToday{
+	padding-left:0%;
+	}
+	.emailUs{
+		padding-left:0%;
+	}
+	
+	.copyright{
+		text-align:center;
+		padding-left:0%;
+		width:100%;
+	}
+}
+
+
+@media screen and (max-width : 780px){
+	.phonenumber{
+		margin-left:70px;
+	}
+	.iconimage{
+		height:65px;
+	}
+	.iconlabel{
+		font-size:30px;
+	}
+	.callusToday{
+		padding-left:0%;
+		font-size:20px;
+	}
+	.emailUs{
+		padding-left:0%;
+	}
+	.footer-left p{
+		font-size:20px;
+	}
+	.footer-center p{
+		font-size:20px;
+	}
+	.footer-right p{
+		font-size:20px;
+	}
+	.copyright{
+		text-align:center;
+		padding-left:0%;
+		width:100%;
+	}
+	
+}
+
+
+

@@ -1,0 +1,107 @@
+package com.servlet.explorer;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import java.sql.*;
+import javax.naming.NamingException;
+
+/**
+ * Servlet implementation class Login
+ */
+@WebServlet("/Login")
+public class Login extends HttpServlet {
+//	private static final long serialVersionUID = 1L;
+//       
+//    /**
+//     * @see HttpServlet#HttpServlet()
+//     */
+//    public Login() {
+//        super();
+//        // TODO Auto-generated constructor stub
+//    }
+//
+//	/**
+//	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+//	 */
+//	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		// TODO Auto-generated method stub
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+//	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		String username = request.getParameter("username");    
+	    String password = request.getParameter("password");
+	    
+	 // JDBC driver name and database URL
+        final String JDBC_DRIVER="com.mysql.jdbc.Driver";  
+        final String DB_URL="jdbc:mysql://localhost:3306/";
+        //  Database credentials
+        final String USER = "root";
+        final String PASS = "root";
+        
+        // Set response content type
+		response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        
+        HttpSession session = request.getSession();
+        
+	    try{
+            // Register JDBC driver
+//        	System.out.println("In Try");
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            // Open a connection
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            Statement st = conn.createStatement();
+            ResultSet rs;
+            rs = st.executeQuery("select * from Login where UserName='" + username + "' and Password='" + password + "'");
+            
+            if (rs.next()) {
+	        session.setAttribute("username", username);
+	        int doctor_id = rs.getInt("Dentist_ID");
+	        int Patient_ID = rs.getInt("Patient_ID");
+	        //out.println("welcome " + userid);
+	        //out.println("<a href='logout.jsp'>Log out</a>");
+//	        response.sendRedirect("success.jsp");
+	        
+	        
+            } else {
+	        out.println("Invalid password <a href='JD_LoginPage.jsp'>try again</a>");
+            }
+	    
+		    rs.close();
+	//      stmt.close();
+	//      conn.close();
+	      try{
+	          if(st!=null)
+	        	  st.close();
+	       }catch(SQLException se2){ }// nothing we can do
+	       try{
+	          if(conn!=null)
+	          conn.close();
+	       }
+	       catch(SQLException se){
+	          se.printStackTrace();
+	       }//end finally try
+	      
+	   }catch(SQLException se){
+	      //Handle errors for JDBC
+	      se.printStackTrace();
+	   }catch(Exception e){
+	      //Handle errors for Class.forName
+	      e.printStackTrace();
+	   }
+	}
+}

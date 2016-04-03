@@ -1,0 +1,114 @@
+package com.servlet.explore;
+import java.util.Date;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import javax.naming.NamingException;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import java.sql.*;
+
+/**
+ * Servlet implementation class HelloWorldServlet
+ */
+@WebServlet(description = "TestingServlets", urlPatterns = { "/HelloWorldServlet" })
+public class HelloWorldServlet extends HttpServlet {
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	public void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		// JDBC driver name and database URL
+        final String JDBC_DRIVER="com.mysql.jdbc.Driver";  
+        final String DB_URL="jdbc:mysql://localhost:3306/";
+        //  Database credentials
+        final String USER = "root";
+        final String PASS = "root";
+        
+        // Set response content type
+		response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        
+        // If the button that we have in our jsp page made a POST
+        // then the servlet is activated and does whatever we programmed
+        // it to do.
+        String title = "My appointments";
+        String docType =
+          "<!doctype html public \"-//w3c//dtd html 4.0 " +
+           "transitional//en\">\n";
+           out.println(docType +
+           "<html>\n" +
+           "<head><title>" + title + "</title></head>\n" +
+           "<body bgcolor=\"#f0f0f0\">\n" +
+           "<h1 align=\"center\">" + title + "</h1>\n");
+        
+        try{
+            // Register JDBC driver
+        	System.out.println("In Try");
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            // Open a connection
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            // Execute SQL query
+            Statement stmt = conn.createStatement();
+            String sql;
+//            sql = "SELECT Appointment_ID, Dentist_ID, Patient_ID, Appointment_Date, Appointment_Time"
+//            		+ "FROM APPOINTMENT WHERE Appointment_Date = '2006-01-02 00:00:00' and Dentist_ID = 1"
+//            		+ " order by Appointment_ID, Appointment_Time";
+            sql = "SELECT * FROM JOAQUINA.APPOINTMENT";
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            if (!rs.next() ) {
+                System.out.println("no data");
+            } else {
+            
+         // Extract data from result set
+            while(rs.next()){
+               //Retrieve by data
+               int Appointment_Id  = rs.getInt("Appointment_ID");
+               int Dentist_ID = rs.getInt("Dentist_ID");
+               int Patient_ID = rs.getInt("Patient_ID");
+               Date Appointment_Date = rs.getDate("Appointment_Date");
+               Date Appointment_Time = rs.getDate("Appointment_Time");
+
+               //Display values
+               out.println("Appointment_Id: " + Appointment_Id + "<br>");
+               out.println(", Dentist_ID: " + Dentist_ID + "<br>");
+               out.println(", Patient_ID: " + Patient_ID + "<br>");
+               out.println(", Appointment_Date: " + Appointment_Date + "<br>");
+               out.println(", Appointment_Time: " + Appointment_Time + "<br>");
+            }}
+            out.println("</body></html>");
+            // Clean-up environment
+            rs.close();
+//            stmt.close();
+//            conn.close();
+            try{
+                if(stmt!=null)
+                   stmt.close();
+             }catch(SQLException se2){ }// nothing we can do
+             try{
+                if(conn!=null)
+                conn.close();
+             }
+             catch(SQLException se){
+                se.printStackTrace();
+             }//end finally try
+            
+         }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+         }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+         }
+        
+         } //end try
+        
+}
+
